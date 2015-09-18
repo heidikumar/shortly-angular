@@ -25,6 +25,7 @@ module.exports = {
 
   findAll({})
     .then(function (links) {
+      console.log("RESPONSE Links " + links);
       res.json(links);
     })
     .fail(function (error) {
