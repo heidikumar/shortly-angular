@@ -7,12 +7,23 @@ angular.module('shortly.services', [])
     method: 'GET',
     url: '/api/links'
     }).then(function (resp) {
-      console.log("Current response:" + resp);
       return resp.data;
     });
   };
+  var postLink = function (input) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: input
+    }).then(function (resp) {
+      console.log("Response from post:" + resp);
+      return resp;
+    });
+  };
+
   return {
-    findLinks: findLinks
+    findLinks: findLinks,
+    postLink: postLink
   };
 })
 .factory('Auth', function ($http, $location, $window) {
