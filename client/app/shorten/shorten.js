@@ -5,15 +5,12 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
 
   $scope.addLink = function () {
-
-    Links.postLink().then(function (resp) {
+    var newLink = $scope.newLink;
+    Links.postLink(newLink).then(function (resp) {
+      console.log('Go to Disneyland!');
+      $location.href = 'http://localhost:3000/#/links';
       return resp;
-      //do we need a response?
     });
-    // Links.findLinks().then(function (links) {
-    //   console.log(links);
-    //   $scope.data.links = links;
-    // });
   };
   // Your code here
 });

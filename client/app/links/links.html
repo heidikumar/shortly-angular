@@ -2,7 +2,24 @@
   <!-- Your html here -->
 
   <ul ng-model="data">
-  <li>  <!--This will have some repeat function to take in data -->
+    <li ng-repeat="link in data.links track by $index">
+      <img src='../assets/redirect_icon.png'/>
+      <div class='info'>
+        <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+        <div class='title'>{{link.title}}</div>
+        <div class='original'>{{link.url}}</div>
+        <a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+      </div>
+    </li>
   </ul>
 
 </div>
+
+<!-- var LinkSchema = new mongoose.Schema({
+ visits: Number,
+ link: String,
+ title: String,
+ code: String,
+ base_url: String,
+ url: String
+}); -->

@@ -7,6 +7,7 @@ angular.module('shortly.links', [])
     Links.findLinks().then(function (links) {
       console.log(links);
       $scope.data.links = links;
+      // $scope.data.links = ["http://www.ravelry.com", "http://www.google.com"]
     });
   };
   $scope.getLinks();
