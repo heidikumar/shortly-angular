@@ -20,10 +20,20 @@ angular.module('shortly.services', [])
       return resp;
     });
   };
-
+  var navLink = function (code) {
+    return $http({
+      method: 'GET',
+      url: '/api/links/',
+      data: code
+    });
+    // .then(function (resp) {
+    //   return resp.redirect(resp.data.url);
+    // })
+  }  
   return {
     findLinks: findLinks,
-    postLink: postLink
+    postLink: postLink, 
+    navLink: navLink
   };
 })
 .factory('Auth', function ($http, $location, $window) {
@@ -64,7 +74,6 @@ angular.module('shortly.services', [])
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };
-
 
   return {
     signin: signin,

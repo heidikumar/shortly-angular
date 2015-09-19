@@ -10,6 +10,11 @@ angular.module('shortly.links', [])
       // $scope.data.links = ["http://www.ravelry.com", "http://www.google.com"]
     });
   };
+
+  $scope.goToLink = function (code) {
+  	Links.navLink(code);
+  };
+
   $scope.getLinks();
 
 });
